@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <label for "ugeuss">Guess the number:</label>
+        <input type="number" id="guess1" name="guess" placeholder="Guess the secret number">
+        <input type="button" id="guessButton" value="Guess a Number in the range 0-100" onclick=compare2()><br><br>
+        <input type="number" id="uguess" name="uGuess" placeholder="Enter secret number">
+        <input type="button" id="Submit" value="Submit" onclick=disappear()><br><br>
+        <script src="guessingGame.js"></script>
+        <label id="Guesses">Guesses Left</label><br><br>
+        <input type="button" id="replayButton" value="Replay" onclick=play_again2()>
+</body>
+</html>
