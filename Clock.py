@@ -1,6 +1,6 @@
 import datetime
 
-seconds=datetime.datetime.now().second + 1
+seconds=datetime.datetime.now().second
 minutes=datetime.datetime.now().minute
 hours=datetime.datetime.now().hour
 
@@ -16,8 +16,10 @@ while True:
   time.sleep(1)
   if (seconds == 60):
     seconds=0
-    minutes=minutes+1
+    minutes+=1
   if (minutes == 60):
     minutes=0
-    hours=hours+1
+    hours+=1
+  if (hours >= 12):
+    hours-=12
   t1.end_fill()
