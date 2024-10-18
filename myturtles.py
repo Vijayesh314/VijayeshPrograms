@@ -1,66 +1,54 @@
-import turtle as t
 import time
 
-def circle (color, s):
-    s.fillcolor(color)
+def circle (s, x, y, z):
+    s.fillcolor((int(x), int(y), int(z)))
     s.pendown()
     s.begin_fill()
-    s.circle(100)
+    s.circle(50)
     s.end_fill()
     s.penup()
-    time.sleep(2)
-    s.clearscreen()
+    time.sleep(0.5)
 
-def triangle (color, s):
-    s.fillcolor(color)
+def triangle (s, x, y, z):
+    s.fillcolor((int(x), int(y), int(z)))
     s.pendown()
     s.begin_fill()
     for i in range(3):
-        s.forward(175)
+        s.forward(70)
         s.left(120)
     s.end_fill()
     s.penup()
-    time.sleep(2)
-    s.clearscreen()
+    time.sleep(0.5)
 
-def square (color, s):
-    s.fillcolor(color)
+def square (s, x, y, z):
+    s.fillcolor((int(x), int(y), int(z)))
     s.pendown()
     s.begin_fill()
     for i in range(4):
-        s.forward(175)
+        s.forward(50)
         s.left(90)
     s.end_fill()
     s.penup()
-    time.sleep(2)
-    s.clearscreen()
+    time.sleep(0.5)
 
-def pentagon (color, s):
-    s.fillcolor(color)
+def pentagon (s, x, y, z):
+    s.fillcolor((int(x), int(y), int(z)))
     s.pendown()
     s.begin_fill()
     for i in range(5):
-        s.forward(175)
+        s.forward(50)
         s.left(72)
     s.end_fill()
     s.penup()
-    time.sleep(2)
-    s.clearscreen()
+    time.sleep(0.5)
 
-def hexagon (color, s):
-    s.fillcolor(color)
+def hexagon (s, x, y, z):
+    s.fillcolor((int(x), int(y), int(z)))
     s.pendown()
     s.begin_fill()
     for i in range(6):
-        s.forward(175)
+        s.forward(50)
         s.left(60)
     s.end_fill()
     s.penup()
-    time.sleep(2)
-    s.clearscreen()
-
-circle("red", t)
-triangle("blue", t)
-square("yellow", t)
-pentagon("green", t)
-hexagon("blue", t)
+    time.sleep(0.5)
