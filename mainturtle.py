@@ -7,6 +7,10 @@ while num.isnumeric() == False:
     print("Invalid input")
     num = input("1) Circle \n2) Triangle \n3) Square \n4) Pentagon \n5) Hexagon\nEnter the number of the shape you want: ")
 shapeList = [circle, triangle, square, pentagon, hexagon]
+num = int(num)
+while num > 5:
+    print("Invalid input")
+    num = input("1) Circle \n2) Triangle \n3) Square \n4) Pentagon \n5) Hexagon\nEnter the number of the shape you want: ")    
 num = int(num) - 1
 
 def drawshape(x, y):
@@ -21,15 +25,15 @@ def drawshape(x, y):
         t.penup()
         t.goto(t.xcor()+125, t.ycor())
         t.pendown()
+if shapeList[num] == circle:
+    x = -300
+else:
+    x = -350
 
 wn = t.Screen()
 wn.setup(width=800, height=800)
 t.colormode(255)
 t.speed(0)
-if num==1:
-    x = -300
-else:
-    x=-400
 
 for i in range(5):
     y = 200-int(i)*125
