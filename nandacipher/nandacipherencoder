@@ -1,0 +1,17 @@
+encod = "vijayeshnandavasanthakumar"
+alpha = "abcdefghijklmnopqrstuvwxyz"
+
+plaintext = str(input("What is the string you want to encode: "))
+ciphertext = ""
+
+for i in plaintext.lower():
+    if i in alpha:
+        newindex = alpha.index(i)
+        newchar = encod[newindex]
+        ciphertext += newchar
+    elif i == " ":
+        ciphertext += " "
+    else:
+        ciphertext += i
+
+print(ciphertext)
