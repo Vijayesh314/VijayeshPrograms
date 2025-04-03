@@ -1,6 +1,8 @@
 import pgzrun
 from random import randint
-from tkinter import Tk, messagebox
+import tkinter
+from tkinter import Tk, messagebox, simpledialog
+import time
 
 game_over = False
 score = 0
@@ -17,13 +19,22 @@ pac.pos = (100,100)
 #Define collectible
 pellet=Actor("pellet.png")
 pellet.pos = (200,200)
+#Define ghost
+ghost=Actor("ghost.png")
+ghost.pos = (800,100)
+
+#User chooses the number of ghosts following pac
+'''num = simpledialog.askinteger("Number of Ghosts", "How many ghosts do you want on the screen?")
+for i in range (num):
+    #Create multiple actors of the ghost'''
 
 def draw():
-    screen.fill("white")
+    screen.fill("black")
     #Pac appears on screen
     pac.draw()
     pellet.draw()
-    screen.draw.text("Score: " + str(score), center=(50,50), color="black",fontsize=60)
+    ghost.draw()
+    screen.draw.text("Score: " + str(score), center=(50,50), color="white",fontsize=60)
 
     if game_over:
         screen.fill("red")
@@ -35,24 +46,41 @@ def place_pellet():
 
 def update():
     global score
-    if game_over:
-        return
     #Left Arrow key pressed makes pac go left
     if keyboard.left:
-        pac.x=pac.x-2
+        pac.x=pac.x-4
     #Right Arrow key pressed makes pac go right
     elif keyboard.right:
-        pac.x=pac.x+2
+        pac.x=pac.x+4
     #Up Arrow key pressed makes pac go up
     elif keyboard.up:
-        pac.y=pac.y-2
+        pac.y=pac.y-4
     #Down Arrow key pressed makes pac go down
     elif keyboard.down:
-        pac.y=pac.y+2
+        pac.y=pac.y+4
+
+    #Move ghost right if it's left of pac
+    if ghost.x < pac.x:
+        ghost.x += 1  
+    #Move ghost left if it's right of pac
+    elif ghost.x > pac.x:
+        ghost.x -= 1
+    #Move ghost down if its above pac
+    if ghost.y < pac.y:
+        ghost.y += 1
+    #Move ghost up if its below pac
+    elif ghost.y > pac.y:
+        ghost.y -= 1
+
+    #Score increases by 10 when pac collides with pellet
     collected = pac.colliderect(pellet)
+    death = pac.colliderect(ghost)
     if collected:
         score += 10
         place_pellet()
+
+    if death:
+        score -= 10
 
 def time_up():
     global game_over
